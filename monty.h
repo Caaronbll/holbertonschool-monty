@@ -36,4 +36,7 @@ typedef struct instruction_s
 
 /* Prototypes */
 
+/* global variable */
+extern FILE *file;
+;
 #endif
