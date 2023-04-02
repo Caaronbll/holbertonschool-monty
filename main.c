@@ -50,3 +50,36 @@ int main(int argc, char **argv)
 	free(buffer), fclose(file), free_stack(&stack);
 	return (EXIT_SUCCESS);
 }
+
+/**
+ * get_f - finds the function to use for the string
+ * @stack: stack to operate on
+ * @l: line number
+ * @code: string used for the function
+ * Return: pointer to the right function
+ */
+void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
+{
+	instruction_t instruction[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop}
+	};
+	int i = 0;
+
+	while (strcmp(code, instruction[i].opcode) != 0)
+	{
+		i++;
+		if (i > 7)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", l, code);
+			free_stack(stack);
+			errorf();
+		}
+	}
+	return (instruction[i].f);
+}
