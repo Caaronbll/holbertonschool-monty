@@ -64,7 +64,7 @@ void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
 {
 	instruction_t instruction[] = {
 		{"push", push},
-		/*{"pall", pall},*/
+		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop}
 		/*{"swap", swap},*/

@@ -1,7 +1,5 @@
 #include "monty.h"
 
-FILE *file = NULL;
-
 /**
  * errorf - inputs an error
  */
