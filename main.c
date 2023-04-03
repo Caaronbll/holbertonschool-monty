@@ -31,14 +31,14 @@ int main(int argc, char **argv)
 		strcpy(op, token);
 		f = get func(&stack, line_number, op);
 		if (!f)
-			fprintf(stderr, "Error: malloc failed\n"), err();
+			fprintf(stderr, "Error: malloc failed\n"), errorf();
 		if (strcmp(op, "push") == 0)
 		{
 			token = strtok(NULL, " \t\n");
 			if (!token)
 			{
 				free(buffer), buffer = NULL, free_stack(&stack);
-				fprintf(stderr, "L%d: Usage: Push integer\n", line_number), err();
+				fprintf(stderr, "L%d: Usage: Push integer\n", line_number), errorf();
 			}
 			strcpy(pushNum, token);
 		}
@@ -83,3 +83,18 @@ void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
 	}
 	return (instruction[i].f);
 }
+
+/**
+ * pushOp - push operation that sets new value for new node
+ * @stack: linked list stack
+ * @line_number: current line
+ * @pushNum: number to add
+ */
+void pushOp(stack_t ** stack, unsigned int line_number, char *pushNum)
+{
+	if(strcmp(pushNum, "0") == 0)
+		(*stack)->n = 0;
+	if (strcmp(pushNum, "0") != 0)
+	{
+		(*stack->n = atoi(pushNum);
+		 if ((*stack)

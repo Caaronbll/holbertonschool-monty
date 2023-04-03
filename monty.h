@@ -35,8 +35,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Prototypes */
+void errorf(void);
 
 /* global variable */
 extern FILE *file;
-;
+
 #endif
