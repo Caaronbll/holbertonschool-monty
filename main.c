@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		if (!token)
 		{
 			free(buffer), buffer = NULL;
-			 continue;
+			continue;
 		}
 		strcpy(op, token);
 		f = get_f(&stack, line_number, op);
@@ -92,9 +92,9 @@ void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
  * @line_number: current line
  * @pushNum: number to add
  */
-void pushOp(stack_t ** stack, unsigned int line_number, char *pushNum)
+void pushOp(stack_t **stack, unsigned int line_number, char *pushNum)
 {
-	if(strcmp(pushNum, "0") == 0)
+	if (strcmp(pushNum, "0") == 0)
 		(*stack)->n = 0;
 	if (strcmp(pushNum, "0") != 0)
 	{
