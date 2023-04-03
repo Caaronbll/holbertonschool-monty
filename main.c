@@ -1,5 +1,7 @@
 #include "monty.h"
 
+FILE *file = NULL;
+
 /**
  * main - monty bytecode interpreter
  * @argc: argument count
@@ -10,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	void (*f)(stack_t **, unsigned int) = NULL;
-	char *buffer = NULL, op[50] = {"\0"}, pushNum{50} = {"\0"}, *token = NULL;
+	char *buffer = NULL, op[50] = {"\0"}, pushNum[50] = {"\0"}, *token = NULL;
 	size_t bufsize = 0;
 	stack_t *stack = NULL;
 	unsigned int line_number = 1;
@@ -29,7 +31,7 @@ int main(int argc, char **argv)
 			 continue;
 		}
 		strcpy(op, token);
-		f = get func(&stack, line_number, op);
+		f = get_f(&stack, line_number, op);
 		if (!f)
 			fprintf(stderr, "Error: malloc failed\n"), errorf();
 		if (strcmp(op, "push") == 0)
@@ -62,12 +64,12 @@ void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
 {
 	instruction_t instruction[] = {
 		{"push", push},
-		{"pall", pall},
+		/*{"pall", pall},*/
 		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop}
+		{"pop", pop}
+		/*{"swap", swap},*/
+		/*{"add", add},*/
+		/*{"nop", nop}*/
 	};
 	int i = 0;
 
@@ -96,5 +98,30 @@ void pushOp(stack_t ** stack, unsigned int line_number, char *pushNum)
 		(*stack)->n = 0;
 	if (strcmp(pushNum, "0") != 0)
 	{
-		(*stack->n = atoi(pushNum);
-		 if ((*stack)
+		(*stack)->n = atoi(pushNum);
+
+		if ((*stack)->n == 0 || (pushNum[0] != '-' && (*stack)->n == -1))
+		{
+			fprintf(stderr, "Error: L%d: usage: push integer\n", line_number);
+			free_stack(stack);
+			errorf();
+		}
+	}
+}
+
+/**
+ * free_stack - frees a linked list
+ * @stack: linked list
+ * Return: void
+ */
+
+void free_stack(stack_t **stack)
+{
+	if (!(stack) || !(*stack))
+	{
+		return;
+	}
+	free_stack(&((*stack)->next));
+	free(*stack);
+	*stack = NULL;
+}
