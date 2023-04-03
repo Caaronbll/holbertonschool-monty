@@ -87,6 +87,15 @@ void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int)
 }
 
 /**
+ * errorf - prints for an erroe
+ */
+void errorf(void)
+{
+	fclose(file);
+	exit(EXIT_FAILURE);
+}
+
+/**
  * pushOp - push operation that sets new value for new node
  * @stack: linked list stack
  * @line_number: current line
