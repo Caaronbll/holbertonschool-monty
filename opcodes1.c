@@ -34,6 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * pop - removes first node
  * @stack: linked list
+ * @line_number: number of line
  * Return: void
  */
 
@@ -59,6 +60,7 @@ void pop(stack_t **stack, unsigned int line_number)
 /**
  * pint - prints the value of the first node
  * @stack: linked list
+ * @line_number: number of line
  * Return: void
  */
 

@@ -12,7 +12,7 @@ FILE *file = NULL;
 int main(int argc, char **argv)
 {
 	void (*f)(stack_t **, unsigned int) = NULL;
-	char *buffer = NULL, op[50] = {"\0"}, pushNum[50] = {"\0"}, *token = NULL;
+	char *buffer = NULL, op[50] = {'\0'}, pushNum[50] = {'\0'}, *token = NULL;
 	size_t bufsize = 0;
 	stack_t *stack = NULL;
 	unsigned int line_number = 1;
