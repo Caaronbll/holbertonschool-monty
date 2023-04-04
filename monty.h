@@ -42,7 +42,7 @@ typedef struct instruction_s
 
 /* Prototypes */
 void errorf(void);
-int main(int argc, char **argv);
+
 void (*get_f(stack_t **stack, int l, char *code))(stack_t **, unsigned int);
 void pushOp(stack_t **stack, unsigned int line_number, char *pushNum);
 void free_stack(stack_t **stack);
