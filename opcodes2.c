@@ -8,22 +8,22 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *temp5995;
 
 	(void)line_number;
-	temp = *stack;
-	while (temp)
+	temp5995 = *stack;
+	while (temp5995)
 	{
-		printf("%d\n", temp->n);
-		temp = temp->next;
+		printf("%d\n", temp5995->n);
+		temp5995 = temp5995->next;
 	}
 }
 
 /**
  * swap - swaps the top nodes in the list
  * @stack: linked list
- * @line_number: number of line
- */
+ * @line_number: number of line-;/
+ */0p
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp = (*stack)->n;
