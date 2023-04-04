@@ -8,14 +8,14 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp5995;
+	stack_t *temp;
 
 	(void)line_number;
-	temp5995 = *stack;
-	while (temp5995)
+	temp = *stack;
+	while (temp)
 	{
-		printf("%d\n", temp5995->n);
-		temp5995 = temp5995->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
 
