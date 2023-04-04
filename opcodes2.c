@@ -23,7 +23,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * swap - swaps the top nodes in the list
  * @stack: linked list
  * @line_number: number of line-;/
- */0p
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp = (*stack)->n;
